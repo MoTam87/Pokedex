@@ -7,6 +7,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "Pokemon Solid", sans-serif;
 }
 
 .pokemonImgTitle {
@@ -187,6 +188,181 @@ body {
   font-family: 'Pokemon Solid' !important;
   letter-spacing: 2px;
   padding-bottom: 10px !important;
+}
+
+/*/////////// loading animation screen ////////*/
+
+#loading-animation{
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #ffffffd4;
+}
+
+.loading {
+  transform: translate(-40%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  width: 100px;
+  height: 100px;
+}
+
+.l {
+  color: black;
+  opacity: 0;
+  animation: op 2s ease-in-out infinite;
+  animation-delay: 0.1s;
+}
+
+.o {
+  color: black;
+  opacity: 0;
+  animation: op 2s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.a {
+  color: black;
+  opacity: 0;
+  animation: op 2s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.d {
+  color: black;
+  opacity: 0;
+  animation: op 2s ease-in-out infinite;
+  animation-delay: 0.7s;
+}
+
+.i {
+  color: black;
+  opacity: 0;
+  animation: op 2s ease-in-out infinite;
+  animation-delay: 0.9s;
+}
+
+.n {
+  color: black;
+  opacity: 0;
+  animation: op 2s ease-in-out infinite;
+  animation-delay: 1.1s;
+}
+
+.g {
+  color: black;
+  opacity: 0;
+  animation: op 2s ease-in-out infinite;
+  animation-delay: 1.3s;
+}
+
+.d1 {
+  color: black;
+  opacity: 0;
+  animation: op1 2s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.d2 {
+  color: black;
+  opacity: 0;
+  animation: op1 2s ease-in-out infinite;
+  animation-delay: 0.9s;
+}
+
+.load {
+  position: relative;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+}
+
+.progress {
+  top: 50%;
+  left: -80%;
+  position: absolute;
+  margin-top: 2.2em;
+  transform: translate(10%, -50%);
+  content: '';
+  width: 3.1em;
+  height: 3.1em;
+  background: transparent;
+  border-radius: 50%;
+  animation: load_37100 2s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+@keyframes load_37100 {
+  0% {
+    background-color: #DB4437;
+  }
+
+  25% {
+    background-color: #F4B400;
+  }
+
+  75% {
+    background-color: #0F9D58;
+  }
+
+  100% {
+    background-color: #4285F4;
+  }
+}
+
+.progress:nth-child(2) {
+  left: 50%;
+  animation-delay: 1.3s;
+}
+
+.progress:nth-child(3) {
+  left: 180%;
+  animation-delay: 1.7s;
+}
+
+.progress:nth-child(4) {
+  left: 300%;
+  animation-delay: 2s;
+}
+
+@keyframes op {
+  0% {
+    color: black;
+    opacity: 1;
+  }
+
+  50% {
+    color: green;
+    opacity: 1;
+  }
+
+  100% {
+    color: black;
+    opacity: 1;
+  }
+}
+
+@keyframes op1 {
+  0% {
+    color: black;
+    opacity: 1;
+  }
+
+  50% {
+    color: green;
+    opacity: 0;
+  }
+
+  100% {
+    color: black;
+    opacity: 1;
+  }
 }
 
 /*//////////////////////////////// hover effects //////////////////////*/

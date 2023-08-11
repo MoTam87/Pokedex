@@ -4,6 +4,14 @@ let alltypes = [];
 let loading = false;
 let myChart;
 
+function showLoadingAnimation() {
+    document.getElementById("loading-animation").style.display = "block";
+}
+
+function hideLoadingAnimation() {
+    document.getElementById("loading-animation").style.display = "none";
+}
+
 /**
  * Load Pokemon data from the PokeAPI and add to the allPokemon array.
  * 
@@ -11,6 +19,7 @@ let myChart;
  * for a specified range of Pokemon IDs and adds them to the allPokemon array.
  */
 async function loadPokemon() {
+    showLoadingAnimation();
     // Loop through a range of Pokemon IDs and fetch their data
     for (let i = 1 + newLoadPokemon; i <= 20 + newLoadPokemon; i++) {
         let url = `https://pokeapi.co/api/v2/pokemon/${i}/`;
@@ -31,6 +40,7 @@ async function loadPokemon() {
         allPokemon.push(pokemon); // Add the Pokemon object to the allPokemon array
         alltypes.push(types); // Add the types to the alltypes array
     };
+    hideLoadingAnimation();
     loadPokedex(); // Load the Pokedex after fetching and adding all Pokemon data
 };
 
@@ -63,7 +73,7 @@ function loadPokedex() {
 };
 
 
-//////////////////Suchfunction/////////////////////
+//////////////////search-function/////////////////////
 
 /**
  * Filter and display Pokemon cards based on search input.
@@ -81,7 +91,7 @@ function filterPokemon() {
         if (allPokemon[j]['name'].toLowerCase().includes(search)) {  // Check if the current Pokemon's name contains the search term
         // Add the filtered Pokemon card HTML to the container
         container.innerHTML += `
-        <div class="pokemonCard hvr-grow" id="pokemonCard${j}">
+        <div onclick="popUp(${j})" class="pokemonCard hvr-grow" id="pokemonCard${j}">
             <span id="numberOfPokemon" class="numberOfPokemon"># ${j + 1}</span>
             <h2>${allPokemon[j]['name']}</h2>
             <img src="${allPokemon[j]['image']}" alt="">           
@@ -110,7 +120,6 @@ function reloadPage() {
  * This function increases the number of Pokemon cards to load by 20 and triggers the loading process.
  */
 function loadMorePokemon() {
-    // Erhöhen um 20
     if (!loading) { // Check if loading is not in progress
         loading = true; // Set loading to true to prevent concurrent loading
         newLoadPokemon += 20; // Increase the number of Pokemon cards to load
