@@ -4,14 +4,6 @@ let alltypes = [];
 let loading = false;
 let myChart;
 
-function showLoadingAnimation() {
-    document.getElementById("loading-animation").style.display = "block";
-}
-
-function hideLoadingAnimation() {
-    document.getElementById("loading-animation").style.display = "none";
-}
-
 /**
  * Load Pokemon data from the PokeAPI and add to the allPokemon array.
  * 
@@ -43,6 +35,14 @@ async function loadPokemon() {
     hideLoadingAnimation();
     loadPokedex(); // Load the Pokedex after fetching and adding all Pokemon data
 };
+
+function showLoadingAnimation() {
+    document.getElementById("loading-animation").style.display = "block";
+}
+
+function hideLoadingAnimation() {
+    document.getElementById("loading-animation").style.display = "none";
+}
 
 /**
  * Load and display the Pokedex with Pokemon cards.
