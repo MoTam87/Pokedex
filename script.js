@@ -145,7 +145,7 @@ function popUp(card) {
     }
     document.getElementById('background').classList.remove('display-no');
     document.getElementById('background').innerHTML = `
-        <div class="popUpCard">
+        <div onclick="doNotClose(event)" class="popUpCard">
             <div id="backGwhiteTopSection" class="topSection d-flex flex-column align-items-center" style="width: 100%";>
                 <div class="backGwhiteTopSection">
                     <div class="d-flex gap-2"><img class="closeAllarrow hvr-buzz-out" onclick="closePopUp()" src="img/iconmonstr-arrow-left-lined-24.png"><h6>Pokedex</h6></div>
@@ -240,6 +240,10 @@ function closePopUp(){
     document.getElementById('background').innerHTML = ''; // Clear the popup content
     loadPokedex(); // Load the Pokedex
 };
+
+function doNotClose(event){
+    event.stopPropagation();
+}
 
 /**
  * Slide the popup to the left to show the previous Pokemon.
